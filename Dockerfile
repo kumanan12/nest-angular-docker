@@ -19,7 +19,7 @@ COPY back-end ./
 RUN npm run build
 
 # ---- Release ----
-FROM base AS release
+FROM node:20-slim AS release
 WORKDIR /app
 COPY --from=front-end /app/client ./client
 COPY --from=back-end /app/back-end/dist ./back-end/dist
